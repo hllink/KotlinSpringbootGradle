@@ -21,8 +21,8 @@ class MainControllerService(val cityRepository: CityRepository, val countryRepos
     }
 
     fun addCity(city: String, country: String): String {
-        var city = city.toUpperCase().trim()
-        var country = country.toUpperCase().trim()
+        val city = city.toUpperCase().trim()
+        val country = country.toUpperCase().trim()
 
         var countryEntity = countryRepository.findFirstByName(country)
         if (countryEntity == null) {
@@ -31,7 +31,7 @@ class MainControllerService(val cityRepository: CityRepository, val countryRepos
         }
         val cityEntity = City(city.toUpperCase(),countryEntity)
         cityRepository.save(cityEntity)
-        return "$city in the country $country saved with sucess!"
+        return "$city in the country $country saved with success!"
     }
 
 }

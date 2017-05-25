@@ -51,7 +51,7 @@ class PocKotlinBootApplicationTests() {
 
 
     @Test
-    fun T5testGetCitiesQueryTeste() {
+    fun T5testGetCitiesQueryTest() {
         println("################### Query 'Hyrule' test ###################")
         printCitiesResults(controller.citiesRest("Hyrule"))
         println("################### End test ###################")
@@ -60,7 +60,7 @@ class PocKotlinBootApplicationTests() {
     fun printCitiesResults(list: List<City>?) {
         if (list != null) {
             for (item in list) {
-                println("Cidade: ${item.name} ; País: ${item.country.name}")
+                println("City: ${item.name} ; Country: ${item.country.name}")
             }
         }
     }
