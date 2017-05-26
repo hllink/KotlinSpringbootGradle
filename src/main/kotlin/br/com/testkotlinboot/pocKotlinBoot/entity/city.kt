@@ -7,7 +7,7 @@ import javax.persistence.*
  */
 @Entity
 @SequenceGenerator(name = "city_seq", sequenceName = "city_seq", allocationSize = 1)
-class City() {
+class City(name: String, country: Country?) {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long = 0
@@ -18,10 +18,5 @@ class City() {
     @JoinColumn(name = "country_id", referencedColumnName = "id", nullable = false)
     lateinit var country: Country
 
-    constructor(name: String, country: Country?) : this() {
-        this.name = name
-        if (country != null) this.country = country
-    }
-    constructor(name: String) : this(name,null) {
-    }
+    protected constructor() : this("", null)
 }
