@@ -8,7 +8,7 @@ import javax.persistence.*
  */
 @Entity
 @SequenceGenerator(name = "country_seq", sequenceName = "country_seq", allocationSize = 1)
-class Country(name: String) {
+class Country() {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long = 0
@@ -18,5 +18,7 @@ class Country(name: String) {
     @OneToMany(mappedBy = "country")
     lateinit var cities: Collection<City>
 
-    constructor(): this("")
+    constructor(name: String): this() {
+        this.name = name
+    }
 }
