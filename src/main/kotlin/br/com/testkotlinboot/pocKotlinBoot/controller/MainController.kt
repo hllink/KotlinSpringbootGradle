@@ -18,7 +18,7 @@ class MainController(val service:MainControllerService) {
         return if (countryQuery != null)  service.findByCountryName(countryQuery) else service.findAll()
     }
 
-    @RequestMapping(value = "/cities", method = arrayOf(RequestMethod.POST),produces = arrayOf("application/json"))
+    @RequestMapping(value = "/cities", method = arrayOf(RequestMethod.POST),produces = arrayOf("text/plain"))
     @ResponseBody
     fun addCityRest(@RequestParam(value = "city", required = true) city: String,
                     @RequestParam(value = "country", required = true) country: String): String {
